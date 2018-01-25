@@ -1,0 +1,20 @@
+{
+  "name": "weatherwebapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ionic/app-scripts": "^3.1.6",
+    "axios": "^0.17.1",
+    "dark-sky-api": "^0.6.21",
+    "express": "^4.16.2",
+    "formidable": "^1.1.1",
+    "portfinder": "^1.0.13"
+  }
+}
