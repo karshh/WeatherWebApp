@@ -15,6 +15,7 @@
     "dark-sky-api": "^0.6.21",
     "express": "^4.16.2",
     "formidable": "^1.1.1",
+    "jsdom": "^11.6.1",
     "portfinder": "^1.0.13"
   }
 }
