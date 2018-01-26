@@ -3,7 +3,7 @@ var darkSkyAPI = require("dark-sky-api")
 var axios = require("axios");
 var app = express()
 
-var key = "e97662a26a5c00c51530832396087e62";
+var key = "my-key";
 var param = "51.0659,-114.0914"
 var darkSkyURL = "https://api.darksky.net/forecast/" + key + "/" + param;
 
