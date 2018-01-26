@@ -13,42 +13,13 @@ var darkSkyURL = "https://api.darksky.net/forecast/" + key + "/" + param + "?uni
 var server = app.listen(8888, function(){
     var port = server.address().port;
     console.log("App listening at http://localhost:%s\n", port);
-
-
-        // axios({
-        //  method: "GET",
-        //  url: darkSkyURL
-        // }).then(function(res) {
-        //  console.log(res);
-        //  // response.writeHead(200, {'Content-Type' : 'text/html'});
-        //  // response.end(res);
-        // }).catch(function(err) {
-        //  console.log("ERROR:" + err);
-        // })
-        
     });
 
 app.get('/', function(request, response) {
-	// response.sendFile(__dirname + "/" + "index.html");
 	axios({
 		method: "GET",
 		url: darkSkyURL
 	}).then(function(res) {
-        	// console.log(res);
-        	// var cache = [];
-        	// var str = JSON.stringify(res, function(key, value) {
-    	    //     		if (typeof value === 'object' && value !== null) {
-    	    //     			if (cache.indexOf(value) !== -1) {
-    	    //         			// Circular reference found, discard key
-    	    //        				return;
-    	    //     			}
-    	    //     			// Store value in our collection
-    	    //     			cache.push(value);
-    	    // 			}
-    	    // 			return value;
-    	    // 		});
-
-            // var jsonContent = JSON.parse(res);
 
             var data = res.data.hourly.data;
             var hour0 = (new Date(data[0].time * 1000)).getHours();
@@ -65,43 +36,50 @@ app.get('/', function(request, response) {
                         <body>
                             <table id=\"weatherTable\">
                             <tr>
-                                <th>Time</th>
-                                <th>Temperature</th>
-                                <th>Humidity</th>
+                                <th align=\"center\">Time</th>
+                                <th align=\"center\">Temperature</th>
+                                <th align=\"center\">Humidity</th>
                             </tr>
 
                             <tr>
-                                <td>` + hour0 + ":" + minute0  + `</td>
-                                <td>` + data[0].temperature + `<sup>o</sup></td>
-                                <td>` + data[0].humidity + `</td>
+                                <td align=\"center\">` 
+                                    + (hour0 == 0 ? 12 : hour0 % 12 + 1) + ":"  // HOUR in 12 hour format
+                                    + (minute0 < 10 ? "0" + minute0 : minute0)  // minute
+                                    + (hour0 < 12 ? "AM" : "PM") +              // AM/PM
+                                `</td>
+                                <td align=\"center\">` + data[0].temperature + `<sup>o</sup></td>
+                                <td align=\"center\">` + data[0].humidity + `</td>
                             </tr>
 
                             <tr>
-                                <td>` + hour1 + ":" + minute1  + `</td>
-                                <td>` + data[1].temperature + `<sup>o</sup></td>
-                                <td>` + data[1].humidity + `</td>
+                                <td align=\"center\">` 
+                                    + (hour1 == 0 ? 12 : hour1 % 12 + 1) + ":"  // HOUR in 12 hour format
+                                    + (minute1 < 10 ? "0" + minute1 : minute1)  // minute
+                                    + (hour1 < 12 ? "AM" : "PM") +              // AM/PM
+                                `</td>
+                                <td align=\"center\">` + data[1].temperature + `<sup>o</sup></td>
+                                <td align=\"center\">` + data[1].humidity + `</td>
                             </tr>
                             <tr>
-                                <td>` + hour2 + ":" + minute2  + `</td>
-                                <td>` + data[2].temperature + `<sup>o</sup></td>
-                                <td>` + data[2].humidity + `</td>
+                                <td align=\"center\">` 
+                                    + (hour2 == 0 ? 12 : hour2 % 12 + 1) + ":"  // HOUR in 12 hour format
+                                    + (minute2 < 10 ? "0" + minute2 : minute2)  // minute
+                                    + (hour2 < 12 ? "AM" : "PM") +              // AM/PM
+                                `</td>
+                                <td align=\"center\">` + data[2].temperature + `<sup>o</sup></td>
+                                <td align=\"center\">` + data[2].humidity + `</td>
                             </tr>
                             </table>
                         </body>
                     </html>
                 
             `;
-            // console.log(res);
-            // console.log(res.data.hourly.data[0]);
-            // console.log(res.data.hourly.data[1]);
-            // console.log(res.data.hourly.data[2]);
             response.writeHead(200, {'Content-Type' : 'text/html'});
             response.end(htmlString);
 
 
         }).catch(function(err) {
         	console.log("ERROR:" + err);
-        	// console.log(new Error().stack);
 
         });
 
