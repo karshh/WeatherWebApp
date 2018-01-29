@@ -10,7 +10,7 @@ function writeTable(data) {
 		var min = date.getMinutes();
 		var meridiem = (hour < 12 ? "AM" : "PM");
 
-		hour = (hour == 0 ? 12 : hour % 12); // formatting hour to 12-hour clock.
+		hour = (hour == 0 || hour == 12 ? 12 : hour % 12); // formatting hour to 12-hour clock.
 		min = (min < 10 ? "0" + min : min); 	// formatting minutes.
 		$('#weatherTable').append(`
             <tr>
