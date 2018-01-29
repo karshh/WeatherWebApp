@@ -7,18 +7,61 @@ body {
 .nav {
 	margin-top: -25px;
 	background-color: #333333; 
-	height: 90px;
+	height: 108px;
 }
 
 .nav h1 {
 	color: white;
 	position: absolute;
-	margin-top: 45px;
+	margin-top: 55px;
 	margin-left: 85px;
-	font-size: 30px;
+	/*font-size: 30px;*/
+}
+
+.main {
+	text-align: center;
 }
 
 .main p {
-	color: #b22222;
-	font-size: 30px;
+	position: absolute;
+	margin-top: 120px;
+	margin-left: 280px;
+	font-size: 33px;
+	color: #B22222;
+}
+
+
+table {
+	position: absolute;
+	margin-top: 158px;
+	margin-left: 280px;
+	border-collapse: collapse;
+	box-shadow: 1px 10px 60px gainsboro;
+}
+
+th, td {
+	border-bottom: 1px solid #D3D3D3;
+	padding: 21px;
+	font-size: 18px;
+	width: 173px;
+	text-align: right;
+}
+
+td:first-child, th:first-child {
+	text-align: left;
+}
+
+
+td:first-child {
+	background-color: #ddd;
+	color: #333333;
+}
+
+
+
+th {
+	background-color: #B22222;
+	color: #ddd;
+	font-weight: lighter;
+
 }

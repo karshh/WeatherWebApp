@@ -24,6 +24,7 @@ var darkSkyURL = "https://api.darksky.net/forecast/" + key + "/" + param + "?uni
 //  Load CSS/JS files onto server.
 //
 
+app.use('/style.css', express.static(__dirname + "/" + '/style.css'));
 app.use('/jquery.js', express.static(__dirname + "/" + '/jquery.js'));
 app.use('/client.js', express.static(__dirname + "/" + '/client.js'));
 

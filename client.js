@@ -7,16 +7,16 @@ function writeTable(data) {
 	$.each(data, (i, val) => {
 		var date = new Date(val.time * 1000)
 		var hour = date.getHours();
-		hour = (hour == 0 ? 12 : hour % 12 + 1); // formatting hour to 12-hour clock.
 		var min = date.getMinutes();
-		min = (min < 10 ? "0" + min : min); 	// formatting minutes.
 		var meridiem = (hour < 12 ? "AM" : "PM");
 
+		hour = (hour == 0 ? 12 : hour % 12); // formatting hour to 12-hour clock.
+		min = (min < 10 ? "0" + min : min); 	// formatting minutes.
 		$('#weatherTable').append(`
             <tr>
                 <td>` + hour + ":" + min + " " + meridiem + `</td>
-                <td>` + val.temperature + `<sup>o</sup></td>
-                <td>` + val.humidity + `</td>
+                <td>` + Math.round(val.temperature) + `&deg;</td>
+                <td>` + Math.round(val.humidity*100) + `&#37;</td>
             </tr>
     	`);
 	});
