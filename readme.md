@@ -21,6 +21,6 @@ var key = ""; // enter your key here.
 
 Paste your key in the quotes, save the file, and execute the following.
 ```sh
-node server.js
+$ node server.js
 ```
 A command line output will state the URL which the server is listening on. Go on chrome and open up this URL. 
