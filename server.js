@@ -10,7 +10,7 @@ var PORT = 8888;
 //  Dark-Sky-API URL data.
 //
 
-var key = "b5b214e1b2f0325b956141fef771d3de"; // enter your key here.
+var key = ""; // enter your key here.
 var param = "51.0659,-114.0914" // co-ordinates of SAIT.
 var units = "si"; // celcius
 
