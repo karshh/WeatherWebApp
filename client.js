@@ -30,8 +30,8 @@ function writeTable(data) {
 $(document).ready(function() {
 
 	$.ajax({
-		type: 'POST',
-		url: 'http://localhost:8888/weatherData',
+		type: 'GET',
+		url: '/weatherData',
 		success: (dat) => writeTable(dat)
 	});
 	

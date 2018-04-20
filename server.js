@@ -3,14 +3,14 @@ var darkSkyAPI = require("dark-sky-api")
 var axios = require("axios");
 var app = express();
 
-var PORT = 8888;
+var PORT = 8800;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 //
 //  Dark-Sky-API URL data.
 //
 
-var key = ""; // enter your key here.
+var key = "90f3d16345314225bc0f59e6a560d76c"; // enter your key here.
 var param = "51.0659,-114.0914" // co-ordinates of SAIT.
 var units = "si"; // celcius
 
@@ -55,7 +55,7 @@ app.get('/', (request, response) => {
 //  value we stored in data earlier.
 //  
 
-app.post('/weatherData', (req, res) => res.send(data));
+app.get('/weatherData', (req, res) => res.send(data));
 
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
